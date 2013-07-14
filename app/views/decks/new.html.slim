@@ -1,4 +1,10 @@
-h2 New Project
+h2 New Deck
+- if @deck.errors.any?
+  h2 = pluralize(@deck.errors.count, "error")
+  ul
+    - @deck.errors.full_messages.each do |msg|
+      li = msg
+
 = form_for(@deck) do |f| 
   p
     = f.label :name

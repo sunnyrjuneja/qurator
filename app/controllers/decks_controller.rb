@@ -10,10 +10,10 @@ class DecksController < ApplicationController
     @deck = Deck.new(deck_params)
 
     if @deck.save
-      flash[:notice] = "Deck has been created."
-      redirect_to @deck
+      redirect_to @deck, notice: "Deck has been created."
     else
-      # nothing yet
+      flash[:alert] = "Deck has not been created."
+      render action: "new"
     end
   end
 
