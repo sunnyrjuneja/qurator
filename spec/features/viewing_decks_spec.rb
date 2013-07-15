@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Viewing decks' do
-  scenario "Listing alll decks" do
+  scenario "Listing all decks" do
     deck = FactoryGirl.create(:deck, name: 'Sample Deck')
 
     visit '/'
