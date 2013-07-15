@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Managing decks' do
+feature 'Creating decks' do
   before do
     visit '/'
     click_link 'New Deck'
