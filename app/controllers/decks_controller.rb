@@ -36,6 +36,13 @@ class DecksController < ApplicationController
     end
   end
 
+  def destroy
+    @deck = Deck.find(params[:id])
+    @deck.destroy
+
+    redirect_to decks_path, notice: "Deck has been destroyed."
+  end
+
 
   private
 
