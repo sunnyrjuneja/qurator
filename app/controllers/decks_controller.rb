@@ -13,7 +13,7 @@ class DecksController < ApplicationController
     if @deck.save
       redirect_to @deck, notice: "Deck has been created."
     else
-      flash[:alert] = "Deck has not been created."
+      flash.now[:alert] = "Deck has not been created."
       render action: "new"
     end
   end
@@ -31,7 +31,7 @@ class DecksController < ApplicationController
     if @deck.update(deck_params)
       redirect_to @deck, notice: "Deck has been updated."
     else
-      flash[:alert] = "Deck has not been updated."
+      flash.now[:alert] = "Deck has not been updated."
       render action: "edit"
     end
   end
@@ -42,7 +42,6 @@ class DecksController < ApplicationController
 
     redirect_to decks_path, notice: "Deck has been destroyed."
   end
-
 
   private
 
