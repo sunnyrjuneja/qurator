@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130714220411) do
+ActiveRecord::Schema.define(version: 20130720212839) do
+
+  create_table "cards", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "link"
+    t.integer  "deck_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cards", ["deck_id"], name: "index_cards_on_deck_id", using: :btree
 
   create_table "cues", force: true do |t|
     t.string   "name"

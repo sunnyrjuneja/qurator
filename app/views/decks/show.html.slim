@@ -2,3 +2,4 @@ h2 = @deck.name
 
 = link_to "Edit Deck", edit_deck_path(@deck)
 = link_to "Delete Deck", deck_path(@deck), method: :delete, data: { confirm: "Are you sure you want to delete this deck?" }
+= link_to "New Card", new_deck_card_path(@deck)

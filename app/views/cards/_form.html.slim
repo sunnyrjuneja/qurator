@@ -1,0 +1,20 @@
+= form_for [@deck, @card] do |f|
+  - if @card.errors.any?
+    #error_explanation
+      h2 = pluralize(@card.errors.count, "error")
+      prohibited this ticket from being saved:
+
+      ul
+        - @card.errors.full_messages.each do |msg|
+          li = msg
+  p
+    = f.label :title
+    = f.text_field :title
+
+  p
+    = f.label :description
+    = f.text_area :description
+  p
+    = f.label :link
+    = f.text_area :link
+  = f.submit 
