@@ -19,6 +19,18 @@ class CardsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @card.update(card_params)
+      redirect_to [@deck, @card], notice: "Card has been updated."
+    else
+      flash.now[:alert] = "Card has not been updated."
+      render action: "edit"
+    end
+  end
+
   private
     def set_deck
       @deck = Deck.find(params[:deck_id])

@@ -1,3 +1,6 @@
 #card
   h2 = @card.title
   = simple_format(@card.description)
+  = simple_format(@card.link)
+
+  = link_to "Edit Card", [:edit, @deck, @card]
