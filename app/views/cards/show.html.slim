@@ -4,3 +4,6 @@
   = simple_format(@card.link)
 
   = link_to "Edit Card", [:edit, @deck, @card]
+  = link_to "Delete Card", [@deck, @card], method: :delete, 
+      data: { confirm: "Are you sure you want to delete this card?" }
+

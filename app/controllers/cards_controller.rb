@@ -22,6 +22,11 @@ class CardsController < ApplicationController
   def edit
   end
 
+  def destroy
+    @card.destroy
+    redirect_to @deck, notice: "Card has been deleted."
+  end
+
   def update
     if @card.update(card_params)
       redirect_to [@deck, @card], notice: "Card has been updated."
