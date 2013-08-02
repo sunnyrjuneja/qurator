@@ -1,4 +1,8 @@
 Qurator::Application.routes.draw do
+  resources :sessions, only: [:create, :destroy]
+
+  get '/auth/:provider/callback', to: 'sessions#create'
+
   root to: 'decks#index'
   resources :decks do
     resources :cards

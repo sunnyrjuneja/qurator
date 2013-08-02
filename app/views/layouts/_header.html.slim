@@ -1,0 +1,6 @@
+header.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    ul.nav.pull-right
+    - if signed_in?
+        li = current_user.name
+

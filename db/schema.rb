@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130720212839) do
+ActiveRecord::Schema.define(version: 20130723041508) do
 
   create_table "cards", force: true do |t|
     t.string   "title"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 20130720212839) do
 
   create_table "decks", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "nickname"
+    t.string   "name"
+    t.string   "token"
+    t.string   "secret"
+    t.text     "image"
+    t.string   "remember_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
