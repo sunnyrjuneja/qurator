@@ -17,7 +17,7 @@ feature 'Editing cards' do
 
     expect(page).to have_content("Card has been updated.")
 
-    within("#card h2") do
+    within("h1") do
       expect(page). to have_content("Cards are awesome!")
     end
 

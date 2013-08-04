@@ -1,20 +1,19 @@
-= form_for [@deck, @card] do |f|
+= form_for [@deck, @card], html: { class: "form-horizontal" } do |f|
   - if @card.errors.any?
-    #error_explanation
-      h2 = pluralize(@card.errors.count, "error")
-      prohibited this ticket from being saved:
+    = render "shared/error_explanation", invalid_obj: @card
 
-      ul
-        - @card.errors.full_messages.each do |msg|
-          li = msg
-  p
-    = f.label :title
-    = f.text_field :title
+  .form-group
+    = f.label :title, class: "col-lg-2 control-label"
+    .col-lg-10
+      = f.text_field :title, class: "form-control"
 
-  p
-    = f.label :description
-    = f.text_area :description
-  p
-    = f.label :link
-    = f.text_area :link
-  = f.submit 
+  .form-group
+    = f.label :description, class: "col-lg-2 control-label"
+    .col-lg-10
+      = f.text_area :description, class: "form-control"
+
+  .form-group
+    = f.label :link, class: "col-lg-2 control-label"
+    .col-lg-10
+      = f.text_area :link, class: "form-control"
+  = f.submit class: "btn btn-primary"

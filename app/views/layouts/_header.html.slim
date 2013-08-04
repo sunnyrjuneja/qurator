@@ -1,6 +1,9 @@
-header.navbar.navbar-fixed-top.navbar-inverse
-  .navbar-inner
-    ul.nav.pull-right
+.navbar
+  .container
+    a.navbar-brand Qurator
     - if signed_in?
-        li = current_user.name
-
+      p.navbar-text.pull-right Signed in as #{current_user.name}
+      ul.nav.navbar-nav.pull-right
+        li = link_to "Decks", decks_path
+    - else
+        li = link_to "Sign in with Twitter", "/auth/twitter"

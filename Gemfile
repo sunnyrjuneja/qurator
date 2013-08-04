@@ -12,6 +12,7 @@ group :test do
   gem 'selenium-webdriver', '2.0.0'
   gem 'capybara', '2.1.0'
   gem 'factory_girl_rails', '4.2.1'
+  gem 'shoulda-matchers', '2.2.0'
 end
 
 gem 'sass-rails', '4.0.0'
@@ -21,7 +22,9 @@ gem 'jquery-rails', '2.2.1'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
 gem 'slim-rails', '2.0.1'
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails', branch: '3.0.0'
+gem 'font-awesome-rails', github: 'whatasunnyday/font-awesome-rails', branch: 'link-helper'
+gem 'high_voltage', '1.2.4'
 gem 'omniauth-twitter', '1.0.0'
 
 group :doc do

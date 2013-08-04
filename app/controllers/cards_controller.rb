@@ -9,7 +9,8 @@ class CardsController < ApplicationController
   def create
     @card = @deck.cards.create(card_params)
     if @card.save
-      redirect_to [@deck, @card], notice: "Card has been created."
+      flash[:success] = "Card has been created."
+      redirect_to [@deck, @card]
     else
       flash.now[:alert] = "Card has not been created."
       render action: "new"
@@ -29,7 +30,8 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to [@deck, @card], notice: "Card has been updated."
+      flash[:success] = "Card has been updated."
+      redirect_to [@deck, @card]
     else
       flash.now[:alert] = "Card has not been updated."
       render action: "edit"

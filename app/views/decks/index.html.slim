@@ -1,7 +1,10 @@
-= link_to "Sign in with Twitter", "/auth/twitter"
-= link_to "New Deck", new_deck_path
-
-h2 Decks
-ul
-  - @decks.each do |deck|
-    li = link_to deck.name, deck
+.row
+  .col-lg-12
+    h1 Decks
+    .crud-btn-group
+      = ilink_to 'plus-sign-alt', 'New Deck', new_deck_path, class: 'btn btn-small btn-primary'
+.row
+  .col-lg-12
+    ul.list-unstyled
+      - @decks.each do |deck|
+        li = link_to deck.name, deck

@@ -1,1 +1,6 @@
-@import "bootstrap";
+@import "twitter/bootstrap";
+@import 'font-awesome';
+
+.crud-btn-group > a.btn {
+  margin: 0 15px 15px 0;
+}

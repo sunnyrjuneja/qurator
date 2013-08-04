@@ -18,7 +18,7 @@ feature 'Viewing cards' do
 
     click_link @card.title
 
-    within("#card h2") do
+    within("h1") do
       expect(page).to have_content(@card.title)
     end
 

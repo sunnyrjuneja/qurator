@@ -11,7 +11,8 @@ class DecksController < ApplicationController
     @deck = Deck.new(deck_params)
 
     if @deck.save
-      redirect_to @deck, notice: "Deck has been created."
+      flash[:success] = "Deck has been created."
+      redirect_to @deck
     else
       flash.now[:alert] = "Deck has not been created."
       render action: "new"
@@ -29,7 +30,8 @@ class DecksController < ApplicationController
   def update
     @deck = Deck.find(params[:id])
     if @deck.update(deck_params)
-      redirect_to @deck, notice: "Deck has been updated."
+      flash[:success] = "Deck has been updated."
+      redirect_to @deck
     else
       flash.now[:alert] = "Deck has not been updated."
       render action: "edit"
