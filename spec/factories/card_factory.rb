@@ -3,5 +3,7 @@ FactoryGirl.define do
     title "Example Card"
     description "An example card, no more, no less."
     link "http://qurator.com"
+    deck
+    user
   end
 end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Creating decks' do
   before do
-    visit '/'
+    visit_root_and_sign_in
     click_link 'New Deck'
   end
 

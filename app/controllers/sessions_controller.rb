@@ -11,6 +11,11 @@ class SessionsController < ApplicationController
     end
     flash[:notice] = "Signed as #{@user.name} (@#{@user.nickname})"
     sign_in @user
-    redirect_to root_path
+    redirect_to decks_path
+  end
+
+  def destroy
+    sign_out
+    redirect_to root_url
   end
 end

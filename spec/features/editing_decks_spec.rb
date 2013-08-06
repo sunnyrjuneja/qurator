@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 feature "Editing Decks" do
-  before do
-    FactoryGirl.create(:deck)
+  let!(:deck) { FactoryGirl.create(:deck) }
 
-    visit "/"
-    click_link "Example Deck"
+  before do
+    visit_root_and_sign_in
+    click_link deck.name
     click_link "Edit Deck"
   end
 

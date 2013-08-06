@@ -1,9 +1,12 @@
 .navbar
   .container
-    a.navbar-brand Qurator
-    - if signed_in?
-      p.navbar-text.pull-right Signed in as #{current_user.name}
-      ul.nav.navbar-nav.pull-right
+    =link_to "Qurator", root_url, class: "navbar-brand"
+    ul.nav.navbar-nav.pull-right
+      - if signed_in?
+        p.navbar-text.pull-right @#{current_user.nickname}
         li = link_to "Decks", decks_path
-    - else
+        li = ilink_to "signout", "Sign Out", signout_path, method: "delete"
+      - else
         li = link_to "Sign in with Twitter", "/auth/twitter"
+
+      

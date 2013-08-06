@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 feature 'Editing cards' do
-  let!(:deck) { FactoryGirl.create(:deck) }
-  let!(:card) { FactoryGirl.create(:card, deck: deck) }
+  let!(:card) { FactoryGirl.create(:card) }
 
   before do
-    visit "/"
-    click_link deck.name
+    visit_root_and_sign_in
+    click_link card.deck.name
     click_link card.title
     click_link "Edit Card"
   end

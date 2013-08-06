@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 feature "Creating Cards" do
-  before do
-    FactoryGirl.create(:deck, name: "Watch Later")
+  let!(:deck) { FactoryGirl.create(:deck, name: "Watch Later") }
 
-    visit '/'
+  before do
+    visit_root_and_sign_in
 
     click_link "Watch Later"
     click_link "New Card"

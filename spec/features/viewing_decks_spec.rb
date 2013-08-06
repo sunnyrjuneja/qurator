@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 feature 'Viewing decks' do
-  scenario "Listing all decks" do
-    deck = FactoryGirl.create(:deck)
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:deck) { FactoryGirl.create(:deck, user: user) }
 
-    visit '/'
-    click_link 'Example Deck'
+  scenario "Listing all decks" do
+    visit_root_and_sign_in
+    click_link deck.name
     expect(page.current_url).to eql(deck_url(deck))
   end
 end

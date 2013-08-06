@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 feature 'Deleting cards' do
-  let!(:deck) { FactoryGirl.create(:deck) }
-  let!(:card) { FactoryGirl.create(:card, deck: deck) }
+  let!(:card) { FactoryGirl.create(:card) }
 
   before do
-    visit "/"
-    click_link deck.name
+    visit_root_and_sign_in
+    click_link card.deck.name
     click_link card.title
   end
 
@@ -14,6 +13,6 @@ feature 'Deleting cards' do
     click_link "Delete Card"
 
     expect(page).to have_content("Card has been deleted.")
-    expect(page.current_url).to eq(deck_url(deck))
+    expect(page.current_url).to eq(deck_url(card.deck))
   end
 end

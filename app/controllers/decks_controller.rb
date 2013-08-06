@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   def index
-    @decks = Deck.all
+    @decks = current_user.decks
   end
   
   def new
@@ -8,7 +8,7 @@ class DecksController < ApplicationController
   end
 
   def create
-    @deck = Deck.new(deck_params)
+    @deck = current_user.decks.build(deck_params)
 
     if @deck.save
       flash[:success] = "Deck has been created."

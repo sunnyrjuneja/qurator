@@ -7,7 +7,8 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = @deck.cards.create(card_params)
+    @card = @deck.cards.build(card_params)
+    @card.user = current_user
     if @card.save
       flash[:success] = "Card has been created."
       redirect_to [@deck, @card]

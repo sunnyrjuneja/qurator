@@ -1,9 +1,11 @@
 Qurator::Application.routes.draw do
+  root 'high_voltage/pages#show', id: 'home'
+
   resources :sessions, only: [:create, :destroy]
 
   get '/auth/:provider/callback', to: 'sessions#create'
+  delete '/signout', to: 'sessions#destroy'
 
-  root to: 'decks#index'
   resources :decks do
     resources :cards
   end
