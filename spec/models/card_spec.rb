@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Card do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:deck) { FactoryGirl.create(:deck, user: user) }
-  let(:card) { FactoryGirl.create(:card, deck: deck) }
+  let(:card) { FactoryGirl.build(:card) }
 
   subject { card }
 
@@ -29,5 +27,14 @@ describe Card do
       end
       it { should_not be_valid }
     end
+  end
+
+  describe "ensures link has protocol" do
+    before do 
+      card.link = "www.qurator.com" 
+      card.save
+    end
+
+    its(:link) { should eq "http://www.qurator.com" }
   end
 end

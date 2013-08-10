@@ -7,6 +7,6 @@
       = ilink_to 'mail-reply', "Return to #{@deck.name}", deck_path(@deck), class: 'btn btn-small btn-default'
 
     p = simple_format h(@card.description)
-    p = simple_format h(@card.link)
+    p = link_to @card.link, @card.link
 
 

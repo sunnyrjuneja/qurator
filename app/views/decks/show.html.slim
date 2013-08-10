@@ -11,5 +11,4 @@
     ul.list-unstyled
       - @deck.cards.each do |card|
         li
-          = link_to card.title, [@deck, card]
-
+          = link_to title_or_link(card), [@deck, card]
